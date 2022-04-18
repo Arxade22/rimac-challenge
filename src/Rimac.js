@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import Header from "./components/Header";
+import {Header} from "./components/Header";
 import { useForm } from "./hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
 import { eventForm, removeError, setError } from "./actions/form";
@@ -12,7 +12,7 @@ import Coche from "./assets/img/rimac.png"
 const Rimac = ({ history }) => {
 
     const baseURL = "https://jsonplaceholder.typicode.com/users/2";
-    console.log(baseURL)
+
   
     // GET DATA FROM API 
     const { user } = useFetch({ baseURL });
@@ -20,17 +20,19 @@ const Rimac = ({ history }) => {
   
     const dispatch = useDispatch();
     const [terminos, setTerminos] = useState(false);
+    
   
-    const { msgError } = useSelector((state) => state.ui);
+    const { msgError } = useSelector((state) => state);
+    console.log(msgError)
   
     const [formValues, handleInputChange] = useForm({
       tipo_documento: "DNI",
       documento: "",
-      nombre: "Joel",
-      correo: "joel.sanchez@gmail.com",
+      nombre: "braulio",
+      correo: "braulio.villegas@gmail.com",
       celular: "",
       placa: "",
-      marca: "Toyota",
+      marca: "Subaru",
       year: "2021",
       modelo: "Corolla"
     });
@@ -175,9 +177,7 @@ const Rimac = ({ history }) => {
                   </label>
                 </div>
                 <div>
-                  {msgError && (
-                    <div className="alert alert-danger">{msgError}</div>
-                  )}
+                 
                   <button type="submit" className="btn btn-rimac">
                     COTÍZALO
                   </button>

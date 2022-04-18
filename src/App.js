@@ -1,23 +1,19 @@
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
+import { Provider } from "react-redux";
+import {Routes} from './Routes';
 
-// local components
-import { Routes } from './Routes';
+import './assets/style/index.scss';
 
-class App extends PureComponent {
+//local components 
+import store from "./store";
 
-  render() {
-    return (
-      <div className="App">
-        <Routes />
-
-      </div>
-    );
-  }
-
+function App() {
+  return (
+    <div className="App">
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+    </div>
+  );
 }
 
-export default connect(state => ({
-  rootReducer: state.rootReducer,
-
-}))(App)
+export default App;

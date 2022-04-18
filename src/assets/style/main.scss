@@ -1,0 +1,12 @@
+.grid-2{
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    height: 100vh
+}
+
+.chica-position{
+        display: block!important;
+        position: absolute;
+        top: 13.5%;
+        right: 0
+}
